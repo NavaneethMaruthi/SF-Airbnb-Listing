@@ -6,7 +6,7 @@ export default function Listings() {
   const listingsContainer = document.querySelector("#listings-container");
 
   const appendListing = ({ title, price, description } = {}) => {
-    console.log("Append listing:", {title, price, description});
+    console.log("Append listing:", listings);
 
     const listingDiv = document.createElement("div");
     listingDiv.className = "listings col-6";
