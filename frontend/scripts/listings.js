@@ -54,7 +54,26 @@ export default function Listings() {
     const listing = Object.fromEntries(formData.entries());
     appendListing(listing);
   };
-  form.addEventListener("submit", oncreate);
 
+  const fetchListings = async () => {
+    console.log("Fetching listings from backend...");
+
+    try {
+      const res = await fetch("/api/listings");
+
+      if (!res.ok) {
+        console.error("Failed to fetch listings:");
+        return;
+      }
+
+      const listings = await res.json();
+      console.log("Fetched listings:", listings);
+    } catch (error) {
+      console.error("Error fetching listings:", error);
+    }
+  };
+
+  form.addEventListener("submit", oncreate);
+  fetchListings();
   return listings;
 }
