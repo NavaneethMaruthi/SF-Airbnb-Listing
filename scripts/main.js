@@ -1,15 +1,9 @@
-console.log("Hello, SF Airbnb Listing!");
+import Listings from "./listings.js";
 
-const inTitle = document.querySelector("#input-title");
-const inDescription = document.querySelector("#input-description");
-const inPrice = document.querySelector("#input-price");
-const btnCancel = document.querySelector("#button-cancel");
+function MainModule() {
+  const me = {};
+  me.listings = Listings();
+  return me;
+}
 
-const onClick = (evt) => {
-  evt.preventDefault();
-  inTitle.value = "";
-  inDescription.value = "";
-  inPrice.value = "0";
-};
-
-btnCancel.addEventListener("click", onClick);
+MainModule();
